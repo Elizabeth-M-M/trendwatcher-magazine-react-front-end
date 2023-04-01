@@ -42,7 +42,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                       alt=""
                     />
                   </div>
-                  <div className="header-floater p-4 card-hover">
+                  <div className="header-floater p-md-4 p-2 card-hover">
                     <h6>
                       {articles.length === 0
                         ? "Lifestyle"
@@ -146,7 +146,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
               </div>
 
               <div className="col-md-4 col-12">
-                <h4 className="theme-light fw-bold">LATEST STORIES</h4>
+                <h4 className="theme-light fw-bold">TRENDING</h4>
                 {articles.slice(3, 8).map((article, i) => {
                   return <ArticleText elem={article} key={i} />;
                 })}
