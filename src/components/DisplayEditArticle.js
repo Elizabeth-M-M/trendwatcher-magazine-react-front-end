@@ -11,7 +11,7 @@ const DisplayEditArticle = ({ elem, removeArticle }) => {
   }
   return (
     <div
-      className="card-size bg-light m-3  card-hover"
+      className="card-size bg-light m-md-3  card-hover visible"
       id="editor-category-card"
     >
       <div className="card-image-top">

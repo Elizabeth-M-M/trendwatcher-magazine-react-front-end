@@ -30,7 +30,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
           </p>
           <div className="header">
             <div className="row">
-              <div className="col-md-8 header-content">
+              <div className="col-md-8 col-12 header-content">
                 <div className="position-relative">
                   <div className="image-holder-header">
                     <img
@@ -145,7 +145,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                 </div>
               </div>
 
-              <div className="col-md-4">
+              <div className="col-md-4 col-12">
                 <h4 className="theme-light fw-bold">LATEST STORIES</h4>
                 {articles.slice(3, 8).map((article, i) => {
                   return <ArticleText elem={article} key={i} />;

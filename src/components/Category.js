@@ -86,8 +86,8 @@ const Category = ({
           <div className="row">
             <div className="col-md-8">
               <div className="row">
-                <div className="col">{leftArticles}</div>
-                <div className="col">{rightArticles}</div>
+                <div className="col-md-6">{leftArticles}</div>
+                <div className="col-md-6">{rightArticles}</div>
               </div>
             </div>
 
@@ -114,8 +114,8 @@ const Category = ({
     <>
       <div className="theme-bg-modified">
         <div className="container pt-3">
-          <div className="row">
-            <div className="ui large fluid icon input col-6">
+          <div className="row text-center">
+            <div className="ui large fluid icon input col-md-6 mb-md-0 mb-3">
               <input
                 className="p-2"
                 type="text"
@@ -125,7 +125,7 @@ const Category = ({
               />
               <i className="bi bi-search theme-light-mellow-color fw-bolder ms-4 display-6"></i>
             </div>
-            <div className="col-6">
+            <div className="col-md-6">
               <button
                 className="btn-style"
                 onClick={() => {
@@ -136,16 +136,18 @@ const Category = ({
               </button>
             </div>
           </div>
-          <div className="editor-row">
-            {found.map((article, i) => {
-              return (
-                <DisplayEditArticle
-                  elem={article}
-                  key={i}
-                  removeArticle={removeArticle}
-                />
-              );
-            })}
+          <div className="container">
+            <div className="editor-row">
+              {found.map((article, i) => {
+                return (
+                  <DisplayEditArticle
+                    elem={article}
+                    key={i}
+                    removeArticle={removeArticle}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

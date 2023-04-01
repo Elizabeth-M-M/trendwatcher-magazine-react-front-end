@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 const CategoryBtn = ({ btn, setCategory }) => {
   const navigator = useNavigate();
   return (
-    <div className="col-2 p-2">
+    <div className="col-md-2 col-4 p-2">
       <button
         className="btn-category"
         onClick={() => {

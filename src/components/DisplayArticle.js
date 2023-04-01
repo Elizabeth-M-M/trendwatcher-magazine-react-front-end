@@ -76,7 +76,7 @@ const DisplayArticle = ({ user, articleToEdit }) => {
             </div>
           </div>
         </div> */}
-        <div className="form-group col-8">
+        <div className="form-group col-md-8">
           <label for="exampleFormControlTextarea1"></label>
           <textarea
             className="form-control"
@@ -120,11 +120,11 @@ const DisplayArticle = ({ user, articleToEdit }) => {
       ) : (
         <>
           <div className="row display-article theme-bg-modified">
-            <div className="col-6 display-article-img">
+            <div className="col-md-6 display-article-img">
               <img src={oneArticle.image} alt="" />
             </div>
             <div
-              className="col-6 d-flex justify-content-center
+              className="col-md-6 d-flex justify-content-center
         align-items-center"
             >
               <div className="col-8">
@@ -149,7 +149,7 @@ const DisplayArticle = ({ user, articleToEdit }) => {
               </div>
             </div>
 
-            <div className="col-8">
+            <div className="col-md-8 col-12">
               <p className="pt-2">{oneArticle.part2}</p>
 
               <p className="pt-2">{oneArticle.part3}</p>
@@ -166,7 +166,7 @@ const DisplayArticle = ({ user, articleToEdit }) => {
               reviews.map((review, ind) => {
                 return (
                   <div key={ind} className="container p-2">
-                    <div className="d-flex align-items-center p-3 faded-bg col-5 mt-3">
+                    <div className="d-flex align-items-center p-3 faded-bg col-md-5  mt-3">
                       <i class="bi bi-person-lines-fill display-6 me-4 theme-light-mellow-color"></i>
 
                       <div className="">

@@ -298,4 +298,49 @@ font-weight: 700;
   width: 100%;
   height: 100%;
 }
+.card-size {
+  /* height: 300px;
+  width: 90%;
+  margin: auto;
+  margin-top: 5px; */
+display: none;
+}
+.btn-category {
+  font-size: 15px;
+}
+.display-article {
+  height: 100vh;
+}
+
+.display-article-img {
+  width: 100%;
+  height: 40%;
+}
+
+.display-article img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.editor-form-body h3 {
+  font-size: 60px;
+  margin-top: 100px;
+  font-weight: 700;
+}
+.visible{
+  display: block;
+    height: 300px;
+      width: 90%;
+      margin: auto;
+      margin-top: 5px;
+}
+.editor-row {
+  display: block;
+  
+}
+#editor-category-card {
+  height: 350px;
+  width: 80%;
+  margin-top: 10px;
+}
 }
