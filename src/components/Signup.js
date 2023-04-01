@@ -48,8 +48,8 @@ const Signup = ({ handleUser }) => {
   return (
     <div className="text-center form-body">
       <div className="container">
-        <div className="py-5"></div>
-        <div className="col-6 m-auto mt-5">
+        <div className="py-md-5 py-2"></div>
+        <div className="col-md-6 col-10 m-auto mt-5">
           <form
             className="row g-3 needs-validation faded-bg-light fw-bold text-light"
             onSubmit={handleSubmit}

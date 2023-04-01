@@ -57,7 +57,7 @@ const Login = ({ handleUser }) => {
     <div className="text-center form-body">
       <div className="container">
         <div className="py-5"></div>
-        <div className="col-6 m-auto">
+        <div className="col-md-6 col-10 m-auto">
           <form
             className="row g-3 needs-validation faded-bg-light text-light"
             onSubmit={handleSubmit}

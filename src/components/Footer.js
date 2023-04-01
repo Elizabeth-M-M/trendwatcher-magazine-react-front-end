@@ -4,15 +4,15 @@ const Footer = () => {
   return (
     <div className="footer text-light p-3 ">
       <div className="container">
-        <div className="row">
-          <div className="col-6">
+        <div className="row text-center">
+          <div className="col-6 d-md-block d-none text-md-left">
             <div>
               <h6 className="fw-bold text-uppercase mb-3">Contact us</h6>
               <p>Telephone - 07111111111</p>
               <p>Email - info@trendwatcherdaily.com</p>
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-md-6">
             <h6 className="fw-bold text-uppercase mb-3">Follow us</h6>
             <div className="mb-3">
               <i class="bi bi-facebook me-4"></i>
