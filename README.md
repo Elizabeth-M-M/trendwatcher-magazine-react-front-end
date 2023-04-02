@@ -83,7 +83,7 @@ As an editor, these are the credentials to log in to the editor view
 ![alt text](./images/editormainarticle.png "Trend Watcher Magazine")
 
 #### Known Bugs
-Currently there is a bug from fetching the deployed API. The API was deployed on Render, but it takes a long time to respond. Still debugging.
+Currently there is a bug from fetching the deployed API. The API was deployed on Render, but it takes a long time to respond. Also, cookie storing is an issue to solve since seperation of the API from the front end. Still debugging.
 
 #### License
 Copyright (c) 2023 Elizabeth Mwende Muthusi.

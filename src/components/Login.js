@@ -64,10 +64,7 @@ const Login = ({ handleUser }) => {
             novalidate
           >
             <div className="col-md-6">
-              <label
-                htmlFor="username"
-                className="form-label fw-bold"
-              >
+              <label htmlFor="username" className="form-label fw-bold">
                 Username
               </label>
               <input
@@ -81,10 +78,7 @@ const Login = ({ handleUser }) => {
               />
             </div>
             <div className="col-md-6">
-              <label
-                htmlFor="password"
-                className="form-label fw-bold"
-              >
+              <label htmlFor="password" className="form-label fw-bold">
                 Password
               </label>
               <input
@@ -105,10 +99,7 @@ const Login = ({ handleUser }) => {
                   id="gridCheck"
                   onChange={handleInputs}
                 />
-                <label
-                  className="form-check-label fw-bold"
-                  for="gridCheck"
-                >
+                <label className="form-check-label fw-bold" for="gridCheck">
                   Sign in as Editor
                 </label>
               </div>
@@ -121,7 +112,11 @@ const Login = ({ handleUser }) => {
             </div>
             <ul>
               {errors.length > 0
-                ? errors.map((err) => <li key={err} className='error-list'>{err}</li>)
+                ? errors.map((err) => (
+                    <li key={err} className="error-list">
+                      {err}
+                    </li>
+                  ))
                 : null}
             </ul>
           </form>

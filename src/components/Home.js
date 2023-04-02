@@ -48,14 +48,21 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                     ) : (
                       <h6>{articles.slice(0, 1)[0].category}</h6>
                     )}
-                      {articles.length === 0 ? (
-                        <p>Currently facing fetching issues. <br /> Click the button below, wait till you see some data, then go back to the website and refresh</p>
-                      ) : (
-                        <h3>{articles.slice(0, 1)[0].part_title}</h3>
-                      )}
-                    
                     {articles.length === 0 ? (
-                      <a href="https://trial1-cksf.onrender.com/articles/1" className="btn-style text-decoration-none">
+                      <p>
+                        Currently facing fetching issues. <br /> Click the
+                        button below, wait till you see some data, then go back
+                        to the website and refresh
+                      </p>
+                    ) : (
+                      <h3>{articles.slice(0, 1)[0].part_title}</h3>
+                    )}
+
+                    {articles.length === 0 ? (
+                      <a
+                        href="https://trial1-cksf.onrender.com/articles/1"
+                        className="btn-style text-decoration-none"
+                      >
                         Click To Solve
                       </a>
                     ) : (
@@ -209,15 +216,13 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
 
   return (
     <>
-      <div className="container">
-
-      </div>
+      <div className="container"></div>
       {!user
         ? userHomePage
         : user.username !== "editor"
         ? userHomePage
         : editorHomePage}
-        <Footer/>
+      <Footer />
     </>
   );
 };
