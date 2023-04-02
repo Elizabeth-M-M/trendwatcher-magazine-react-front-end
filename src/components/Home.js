@@ -36,34 +36,43 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                     <img
                       src={
                         articles.length === 0
-                          ? "https://t.ly/_JOz"
+                          ? null
                           : articles.slice(0, 1)[0].image
                       }
                       alt=""
                     />
                   </div>
                   <div className="header-floater p-md-4 p-2 card-hover">
-                    <h6>
-                      {articles.length === 0
-                        ? "Lifestyle"
-                        : articles.slice(0, 1)[0].category}
-                    </h6>
-                    <h3>
-                      {articles.length === 0
-                        ? "A Walk to Remember"
-                        : articles.slice(0, 1)[0].part_title}
-                    </h3>
-                    <div>
-                      <i class="bi bi-list fw-bold"></i>
-                      <button
-                        className="btn-read"
-                        onClick={() => {
-                          navigator(`/articles/${articles.slice(0, 1)[0].id}`);
-                        }}
-                      >
-                        READ
-                      </button>
-                    </div>
+                    {articles.length === 0 ? (
+                      <h6>APOLOGIES</h6>
+                    ) : (
+                      <h6>{articles.slice(0, 1)[0].category}</h6>
+                    )}
+                      {articles.length === 0 ? (
+                        <p>Currently facing fetching issues. <br /> Click the button below, wait till you see some data, then go back to the website and refresh</p>
+                      ) : (
+                        <h3>{articles.slice(0, 1)[0].part_title}</h3>
+                      )}
+                    
+                    {articles.length === 0 ? (
+                      <a href="https://trial1-cksf.onrender.com/articles/1" className="btn-style text-decoration-none">
+                        Click To Solve
+                      </a>
+                    ) : (
+                      <div>
+                        <i class="bi bi-list fw-bold"></i>
+                        <button
+                          className="btn-read"
+                          onClick={() => {
+                            navigator(
+                              `/articles/${articles.slice(0, 1)[0].id}`
+                            );
+                          }}
+                        >
+                          READ
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -73,7 +82,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                       <img
                         src={
                           articles.length === 0
-                            ? "https://t.ly/_JOz"
+                            ? null
                             : articles.slice(1, 2)[0].image
                         }
                         alt=""
@@ -82,12 +91,12 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                     <div className="p-2 ps-3">
                       <small>
                         {articles.length === 0
-                          ? "Lifestyle"
+                          ? null
                           : articles.slice(1, 2)[0].category}
                       </small>
                       <h4>
                         {articles.length === 0
-                          ? "A Walk to Remember"
+                          ? null
                           : articles.slice(1, 2)[0].part_title}
                       </h4>
                       <div>
@@ -110,7 +119,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                       <img
                         src={
                           articles.length === 0
-                            ? "https://t.ly/_JOz"
+                            ? null
                             : articles.slice(2, 3)[0].image
                         }
                         alt=""
@@ -119,12 +128,12 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                     <div className="p-2 ps-3">
                       <small>
                         {articles.length === 0
-                          ? "Lifestyle"
+                          ? null
                           : articles.slice(2, 3)[0].category}
                       </small>
                       <h4>
                         {articles.length === 0
-                          ? "A Walk to Remember"
+                          ? null
                           : articles.slice(2, 3)[0].part_title}
                       </h4>
                       <div>
@@ -201,7 +210,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
   return (
     <>
       <div className="container">
-       
+
       </div>
       {!user
         ? userHomePage
