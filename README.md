@@ -46,7 +46,12 @@ $ npm start
 5. The app should now be running on `http://localhost:3000`
 
 
-The app uses an already deployed api for its backend. The backend repository for this front end is `https://github.com/Elizabeth-M-M/magazine_ruby_on_rails_backend`
+The app uses an already deployed api for its backend. The backend repository for this front end is `https://github.com/Elizabeth-M-M/magazine_ruby_on_rails_backend` and it's deployed version is at https://trial1-cksf.onrender.com/ 
+
+### Using the deployed front end
+- Navigate to https://magazine-react-front-end.vercel.app 
+- If the website is not showing any images, go to https://trial1-cksf.onrender.com/articles/1 and wait until you see a JSON data of an article and refresh the page again.
+- If not, you can work with the website as you will
 
 As a user, you can sign up and use those credentials to sign in later after logging out
 
@@ -56,8 +61,8 @@ As an editor, these are the credentials to log in to the editor view
 - check the checkbox `log in as editor`
 
 ## Screenshots of the Front End Design
- It is divided into two parts; user's view and editor's view. The deployed app is at `https://magazine-react-front-end.vercel.app/`
-
+ It is divided into two parts; user's view and editor's view. 
+ 
  ### User view
 
 - Homepage
@@ -76,6 +81,9 @@ As an editor, these are the credentials to log in to the editor view
 ![alt text](./images/add%20articlepg.png "Trend Watcher Magazine")
 - Main article  page with an edit button. Click on the edit button to edit the current article
 ![alt text](./images/editormainarticle.png "Trend Watcher Magazine")
+
+#### Known Bugs
+Currently there is a bug from fetching the deployed API. The API was deployed on Render, but it takes a long time to respond. Still debugging.
 
 #### License
 Copyright (c) 2023 Elizabeth Mwende Muthusi.
