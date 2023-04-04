@@ -45,7 +45,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                     />
                   </div>
                   {articles.length === 0 ? (
-                    <div className="p-5 text-light header-floater">
+                    <div className="p-5 text-light">
                       <h4 className="theme-light-mellow-color">APOLOGIES</h4>
                       <p>
                         We're currently facing some issues getting data for the

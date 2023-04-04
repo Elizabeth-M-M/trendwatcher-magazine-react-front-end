@@ -50,15 +50,15 @@ body {
     min-height:86vh;
 }
 .form-body {
-  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6),
-      rgba(2, 2, 2, 0.8)), url("./images/19.jpg") no-repeat;
+  background: linear-gradient(to bottom right, rgba(28, 153, 143, 0.6),
+      rgba(0, 0, 0, 0.6)), url("./images/12.jpg") no-repeat;
   background-position: 50% 50%;
   background-size: cover;
   min-height: 86vh;
 }
 .faded-bg-light {
-  background: linear-gradient(to bottom right, rgba(73, 50, 7, 0.4),
-      rgba(190, 171, 136, 0.2));
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.2));
       border-radius: 10px;
 }
  /* body */
