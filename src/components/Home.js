@@ -42,30 +42,25 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                       alt=""
                     />
                   </div>
-                  <div className="header-floater p-md-4 p-2 card-hover">
-                    {articles.length === 0 ? (
-                      <h6>APOLOGIES</h6>
-                    ) : (
-                      <h6>{articles.slice(0, 1)[0].category}</h6>
-                    )}
-                    {articles.length === 0 ? (
+                  {articles.length === 0 ? (
+                    <div className="p-5 text-light">
+                      <h4 className="theme-light-mellow-color">APOLOGIES</h4>
                       <p>
-                        Currently facing fetching issues. <br /> Click the
-                        button below, wait till you see some data, then go back
+                        We're currently facing some issues getting data for the articles. <br /> Click the
+                        button below and wait until you see some data, then go back
                         to the website and refresh
                       </p>
-                    ) : (
-                      <h3>{articles.slice(0, 1)[0].part_title}</h3>
-                    )}
-
-                    {articles.length === 0 ? (
                       <a
                         href="https://trial1-cksf.onrender.com/articles/1"
                         className="btn-style text-decoration-none"
                       >
                         Click To Solve
                       </a>
-                    ) : (
+                    </div>
+                  ) : (
+                    <div className="header-floater p-md-4 p-2 card-hover">
+                      <h6>{articles.slice(0, 1)[0].category}</h6>
+                      <h3>{articles.slice(0, 1)[0].part_title}</h3>
                       <div>
                         <i className="bi bi-list fw-bold"></i>
                         <button
@@ -79,85 +74,60 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                           READ
                         </button>
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
 
                 <div className="d-sm-flex d-block gap-3 mt-4">
-                  <div className="card-size header-card-hover">
-                    <div className="card-image-top">
-                      <img
-                        src={
-                          articles.length === 0
-                            ? null
-                            : articles.slice(1, 2)[0].image
-                        }
-                        alt=""
-                      />
-                    </div>
-                    <div className="p-2 ps-3">
-                      <small>
-                        {articles.length === 0
-                          ? null
-                          : articles.slice(1, 2)[0].category}
-                      </small>
-                      <h4>
-                        {articles.length === 0
-                          ? null
-                          : articles.slice(1, 2)[0].part_title}
-                      </h4>
-                      <div>
-                        <i className="bi bi-list fw-bold"></i>
-                        <button
-                          className="btn-read"
-                          onClick={() => {
-                            navigator(
-                              `/articles/${articles.slice(1, 2)[0].id}`
-                            );
-                          }}
-                        >
-                          READ
-                        </button>
+                  {articles.length === 0 ? null : (
+                    <div className="card-size header-card-hover">
+                      <div className="card-image-top">
+                        <img src={articles.slice(1, 2)[0].image} alt="" />
+                      </div>
+                      <div className="p-2 ps-3">
+                        <small>{articles.slice(1, 2)[0].category}</small>
+                        <h4>{articles.slice(1, 2)[0].part_title}</h4>
+                        <div>
+                          <i className="bi bi-list fw-bold"></i>
+                          <button
+                            className="btn-read"
+                            onClick={() => {
+                              navigator(
+                                `/articles/${articles.slice(1, 2)[0].id}`
+                              );
+                            }}
+                          >
+                            READ
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="card-size header-card-hover ">
-                    <div className="card-image-top">
-                      <img
-                        src={
-                          articles.length === 0
-                            ? null
-                            : articles.slice(2, 3)[0].image
-                        }
-                        alt=""
-                      />
-                    </div>
-                    <div className="p-2 ps-3">
-                      <small>
-                        {articles.length === 0
-                          ? null
-                          : articles.slice(2, 3)[0].category}
-                      </small>
-                      <h4>
-                        {articles.length === 0
-                          ? null
-                          : articles.slice(2, 3)[0].part_title}
-                      </h4>
-                      <div>
-                        <i className="bi bi-list fw-bold"></i>
-                        <button
-                          className="btn-read"
-                          onClick={() => {
-                            navigator(
-                              `/articles/${articles.slice(2, 3)[0].id}`
-                            );
-                          }}
-                        >
-                          READ
-                        </button>
+                  )}
+
+                  {articles.length === 0 ? null : (
+                    <div className="card-size header-card-hover ">
+                      <div className="card-image-top">
+                        <img src={articles.slice(2, 3)[0].image} alt="" />
+                      </div>
+                      <div className="p-2 ps-3">
+                        <small>{articles.slice(2, 3)[0].category}</small>
+                        <h4>{articles.slice(2, 3)[0].part_title}</h4>
+                        <div>
+                          <i className="bi bi-list fw-bold"></i>
+                          <button
+                            className="btn-read"
+                            onClick={() => {
+                              navigator(
+                                `/articles/${articles.slice(2, 3)[0].id}`
+                              );
+                            }}
+                          >
+                            READ
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
 
