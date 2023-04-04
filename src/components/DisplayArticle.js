@@ -3,17 +3,15 @@ import { useParams } from "react-router";
 import "./App.css";
 import { useNavigate } from "react-router";
 import Footer from "./Footer";
-
+// This component is responsible for displaying a single article with it's content
 const DisplayArticle = ({ user, articleToEdit }) => {
   const navigator = useNavigate();
   const [oneArticle, setOneArticle] = useState({});
   const [comment, setComment] = useState("");
   const [reviews, setReviews] = useState([]);
   const [errors, setErrors] = useState([]);
-
   let { id } = useParams();
-  // console.log(id);
-
+  // Gets data for a particular article
   useEffect(() => {
     fetch(`https://trial1-cksf.onrender.com/articles/${id}`).then((res) => {
       if (res.ok) {
@@ -26,21 +24,15 @@ const DisplayArticle = ({ user, articleToEdit }) => {
       }
     });
   }, []);
-  // console.log(reviews)
-  // console.log(user)
-
+// Adds a review to the database through POST and renders it on the page
   function handleReview(e) {
     e.preventDefault();
-
-    if (user === null || user === undefined) {
-      return navigator("/login");
-    } else {
       let reviewFormData = {
         comment,
         user_id: user.id,
         article_id: oneArticle.id,
       };
-      // console.log(reviewFormData)
+
       fetch("https://trial1-cksf.onrender.com/reviews", {
         method: "POST",
         headers: {
@@ -57,26 +49,13 @@ const DisplayArticle = ({ user, articleToEdit }) => {
           r.json().then((err) => console.log(err.errors));
         }
       });
-    }
-  }
-  // console.log(comment)
-  // console.log(user)
 
+  }
+// Responsible for adding review comment input. If user is an editor, the review form is not displayed
   let reviewForm = (
     <div className="container">
       <h5 className="theme-dark-mellow-color">Leave a Review</h5>
-
       <form onSubmit={handleReview}>
-        {/* <div className="d-flex">
-          <div className="content text-center">
-            <div className="stars">
-              <i className="bi bi-star"></i>
-              <i className="bi bi-star"></i>
-              <i className="bi bi-star"></i>
-              <i className="bi bi-star"></i>
-            </div>
-          </div>
-        </div> */}
         <div className="form-group col-md-8">
           <label htmlFor="exampleFormControlTextarea1"></label>
           <textarea
@@ -102,7 +81,6 @@ const DisplayArticle = ({ user, articleToEdit }) => {
             POST
           </button>
         )}
-
         <div
           className="modal fade"
           id="exampleModal"
@@ -127,7 +105,7 @@ const DisplayArticle = ({ user, articleToEdit }) => {
       </form>
     </div>
   );
-  // console.log(errors);
+
   return (
     <>
       <div className="container">
@@ -153,12 +131,13 @@ const DisplayArticle = ({ user, articleToEdit }) => {
         </div>
       ) : (
         <>
+      
           <div className="row display-article theme-bg-modified">
-            <div className="col-md-6 display-article-img">
+            <div className="col-sm-6 display-article-img">
               <img src={oneArticle.image} alt="" />
             </div>
             <div
-              className="col-md-6 d-flex justify-content-center
+              className="col-sm-6 d-flex justify-content-center
         align-items-center"
             >
               <div className="col-8">

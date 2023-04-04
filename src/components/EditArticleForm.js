@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+// This component is responsible for editing the data of an existing article. It is triggered by clicking on the edit button on the main article's page
 const EditArticleForm = ({ articleToEdit }) => {
   const navigator = useNavigate();
   const [errors, setErrors] = useState([]);
-  console.log(articleToEdit);
-
   const [articleFormData, setEditArticleFormData] = useState(articleToEdit);
-
+  // Monitors change in form input and sets them to state under the variable editArticleFormData
   function handleInputs(event) {
     const name = event.target.name;
     const value = event.target.value;
@@ -16,11 +14,9 @@ const EditArticleForm = ({ articleToEdit }) => {
       [name]: value,
     });
   }
-  // console.log(articleFormData);
+  // On clicking edit, the changes are made to the database through PATCH method
   function handleSubmit(event) {
     event.preventDefault();
-    // console.log(articleFormData)
-
     fetch(`https://trial1-cksf.onrender.com/articles/${articleToEdit.id}`, {
       method: "PATCH",
       headers: {

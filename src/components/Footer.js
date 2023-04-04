@@ -1,5 +1,5 @@
 import React from "react";
-
+// Provides contacts for our Magazine
 const Footer = () => {
   return (
     <div className="footer text-light p-3 ">

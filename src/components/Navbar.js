@@ -1,9 +1,10 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-
+// Renders the navbar on top of every page
 const Navbar = ({ user, onLogout }) => {
   const navigator = useNavigate();
+  // handles logout of a user/editor
   function handleLogout() {
     fetch("https://trial1-cksf.onrender.com/logout", {
       method: "DELETE",

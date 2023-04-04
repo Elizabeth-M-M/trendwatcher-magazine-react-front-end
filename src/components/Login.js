@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+// Form responsible for login
 const Login = ({ handleUser }) => {
   const navigator = useNavigate();
   const [errors, setErrors] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
-
   const [loginFormData, setFormData] = useState({
     username: "",
     password: "",
   });
-
+  // Monitors change in form input and sets them to state under the variable loginFormData
   function handleInputs(event) {
     setIsChecked(event.target.checked);
     const name = event.target.name;
@@ -20,16 +19,17 @@ const Login = ({ handleUser }) => {
       [name]: value,
     });
   }
-  // This POST request creates a user on the database and logs in a user to the program
+  // This POST request looks for a user in the database with matching username and password and logs in a user to the program
   function handleSubmit(event) {
     event.preventDefault();
     let userSession;
+    // The checkbox distinguishes a  user logging in or an editor logging in
     if (isChecked == true) {
       userSession = "editor";
     } else {
       userSession = "user";
     }
-    console.log(userSession);
+    // console.log(userSession);
 
     fetch(`https://trial1-cksf.onrender.com/login/${userSession}`, {
       method: "POST",

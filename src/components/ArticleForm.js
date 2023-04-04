@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+// This component is responsible for adding an article
 const ArticleForm = ({ onArticleAdd }) => {
   const navigator = useNavigate();
   const [errors, setErrors] = useState([]);
-
   const [articleFormData, setArticleFormData] = useState({
     title: "",
     content: "",
     image: "",
     category: "",
   });
-
+  // Monitors change in form input and sets them to state under the variable articleFormData
   function handleInputs(event) {
     const name = event.target.name;
     const value = event.target.value;
@@ -20,11 +19,9 @@ const ArticleForm = ({ onArticleAdd }) => {
       [name]: value,
     });
   }
-  // console.log(articleFormData);
+  // Creates an article in the database through POST method plus renders it front end
   function handleSubmit(event) {
     event.preventDefault();
-    // console.log(articleFormData)
-
     fetch(`https://trial1-cksf.onrender.com/articles`, {
       method: "POST",
       headers: {

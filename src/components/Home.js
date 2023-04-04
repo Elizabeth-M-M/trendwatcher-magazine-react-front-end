@@ -5,16 +5,18 @@ import { useNavigate } from "react-router-dom";
 import CategoryBtn from "./CategoryBtn";
 import ArticleImage2 from "./ArticleImage2";
 import Footer from "./Footer";
-
+// Landing page for users and the editor
 const Home = ({ user, articles, categoryBtns, setCategory }) => {
   const navigator = useNavigate();
-
+  // Left articles are articles on the bottom left side
   let leftArticles = articles.slice(9, 13).map((article, i) => {
     return <ArticleImage elem={article} key={i} />;
   });
+  // Right articles are articles on the bottom right side
   let rightArticles = articles.slice(13, 17).map((article, i) => {
     return <ArticleImage2 elem={article} key={i} />;
   });
+  // This is the user's home page view, whether logged in or not
   let userHomePage = (
     <>
       <div className="theme-bg-modified">
@@ -43,12 +45,13 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                     />
                   </div>
                   {articles.length === 0 ? (
-                    <div className="p-5 text-light">
+                    <div className="p-5 text-light header-floater">
                       <h4 className="theme-light-mellow-color">APOLOGIES</h4>
                       <p>
-                        We're currently facing some issues getting data for the articles. <br /> Click the
-                        button below and wait until you see some data, then go back
-                        to the website and refresh
+                        We're currently facing some issues getting data for the
+                        articles. <br /> Click the button below and wait until
+                        you see some data, then go back to the website and
+                        refresh
                       </p>
                       <a
                         href="https://trial1-cksf.onrender.com/articles/1"
@@ -166,7 +169,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
       </div>
     </>
   );
-
+// This is the editors home page after logging in
   let editorHomePage = (
     <>
       <div className="editor-form-body ">

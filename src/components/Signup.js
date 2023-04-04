@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+// Form responsible for sign up of a new user
 const Signup = ({ handleUser }) => {
   const navigator = useNavigate();
   const [errors, setErrors] = useState([]);
-
   const [signUpFormData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
     password_confirmation: "",
   });
-
+  // Monitors change in form input and sets them to state under the variable loginFormData
   function handleInputs(event) {
     const name = event.target.name;
     const value = event.target.value;

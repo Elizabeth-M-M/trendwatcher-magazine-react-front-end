@@ -6,7 +6,7 @@ import DisplayEditArticle from "./DisplayEditArticle";
 import { useNavigate } from "react-router";
 import ArticleImage2 from "./ArticleImage2";
 import Footer from "./Footer";
-
+// This component is responsible for displaying articles according to their categories
 const Category = ({
   articles,
   user,
@@ -17,10 +17,11 @@ const Category = ({
 }) => {
   const [search, setSearch] = useState("");
   const navigator = useNavigate();
+  // Updates search words
   function handleSearch(event) {
     setSearch(event.target.value);
   }
-
+  // The editor can search for an article since the articles can be many to sort through visually, and articles stored in variable found
   let found = articles.filter((article) => {
     let articleName = article.title.toLocaleLowerCase();
     let articleCategory = article.category.toLocaleLowerCase();
@@ -34,8 +35,8 @@ const Category = ({
       return article;
     }
   });
-  // console.log(found);
 
+  // The user can get articles by category and depending on the category they clicked
   let selectedArticles = [];
   if (category === "All") {
     if (user && user.username === "editor") {
@@ -56,7 +57,7 @@ const Category = ({
       }
     });
   }
-  
+// userView renders the user's view
   let userView = (
     <>
       <div className="container p-3">
@@ -98,28 +99,24 @@ const Category = ({
             </div>
 
             <div className="col-md-4">
-              {selectedArticles[0] === undefined
-                    ? null
-                    :selectedArticles.length <= 8 ? null : (
-                <h6 className="theme-light-mellow-color">
-                  MORE
-                </h6>
+              {selectedArticles[0] ===
+              undefined ? null : selectedArticles.length <= 8 ? null : (
+                <h6 className="theme-light-mellow-color">MORE</h6>
               )}
               {selectedArticles[0] === undefined
-                    ? null
-                    :selectedArticles.length < 8
                 ? null
-                : selectedArticles
-                    .slice(8, 14)
-                    .map((article, i) => {
-                      return <ArticleText elem={article} key={i} />;
-                    })}
+                : selectedArticles.length < 8
+                ? null
+                : selectedArticles.slice(8, 14).map((article, i) => {
+                    return <ArticleText elem={article} key={i} />;
+                  })}
             </div>
           </div>
         </div>
       </div>
     </>
   );
+  // Editor view renders the editor's view
   let editorView = (
     <>
       <div className="theme-bg-modified">
@@ -165,13 +162,12 @@ const Category = ({
       </div>
     </>
   );
-  // console.log(articles)
+  // This component is rendered depending on who's logged in or not
   return (
     <>
       {!user ? userView : user.username !== "editor" ? userView : editorView}
-      <Footer/>
+      <Footer />
     </>
-  
   );
 };
 

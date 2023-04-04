@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+// This component is responsible for rendering the buttons for categories
 
 const CategoryBtn = ({ btn, setCategory }) => {
   const navigator = useNavigate();

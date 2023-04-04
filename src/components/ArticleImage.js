@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+// This component is responsible for styling of the articles using cards displayed on the screen, the left side
 const ArticleImage = ({ elem }) => {
   const navigator = useNavigate();
+
   return (
     <div
       className="header-bottom-card card-hover"

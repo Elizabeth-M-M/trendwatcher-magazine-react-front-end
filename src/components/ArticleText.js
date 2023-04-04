@@ -1,8 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router";
-
+// This component is responsible for styling of the articles using cards displayed on the screen, the extreme right side
 const ArticleText = ({ elem }) => {
   const navigator = useNavigate();
+
   return (
     <div
       className="my-3 row card-hover"
@@ -31,5 +32,4 @@ const ArticleText = ({ elem }) => {
 };
 
 export default ArticleText;
-// h6  theme-light-mellow-color
-// small theme-light
+
