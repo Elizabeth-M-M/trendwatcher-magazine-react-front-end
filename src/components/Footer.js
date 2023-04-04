@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
   return (
@@ -15,10 +15,10 @@ const Footer = () => {
           <div className="col-md-6">
             <h6 className="fw-bold text-uppercase mb-3">Follow us</h6>
             <div className="mb-3">
-              <i class="bi bi-facebook me-4"></i>
-              <i class="bi bi-twitter me-4"></i>
-              <i class="bi bi-instagram me-4"></i>
-              <i class="bi bi-whatsapp me-4"></i>
+              <i className="bi bi-facebook me-4"></i>
+              <i className="bi bi-twitter me-4"></i>
+              <i className="bi bi-instagram me-4"></i>
+              <i className="bi bi-whatsapp me-4"></i>
             </div>
             <div>
               <span className="header-font me-5">TWD</span>
@@ -29,6 +29,6 @@ const Footer = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Footer
+export default Footer;

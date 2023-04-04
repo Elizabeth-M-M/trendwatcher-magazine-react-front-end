@@ -83,7 +83,7 @@ const EditArticleForm = ({ articleToEdit }) => {
               />
             </div>
             <div className="form-group col-12">
-              <label for="category">Category</label>
+              <label htmlFor="category">Category</label>
               <select
                 id="category"
                 className="form-control"
@@ -102,7 +102,7 @@ const EditArticleForm = ({ articleToEdit }) => {
               </select>
             </div>
             <div className="form-group">
-              <label for="content"></label>
+              <label htmlFor="content"></label>
               <textarea
                 className="form-control"
                 id="content"

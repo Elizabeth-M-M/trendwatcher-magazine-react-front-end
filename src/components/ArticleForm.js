@@ -88,7 +88,7 @@ const ArticleForm = ({ onArticleAdd }) => {
               />
             </div>
             <div className="form-group col-12">
-              <label for="category">Category</label>
+              <label htmlFor="category">Category</label>
               <select
                 id="category"
                 className="form-control"
@@ -107,7 +107,7 @@ const ArticleForm = ({ onArticleAdd }) => {
               </select>
             </div>
             <div className="form-group">
-              <label for="content">Content</label>
+              <label htmlFor="content">Content</label>
               <textarea
                 className="form-control"
                 id="content"

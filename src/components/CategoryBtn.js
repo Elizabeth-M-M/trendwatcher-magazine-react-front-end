@@ -14,7 +14,7 @@ const CategoryBtn = ({ btn, setCategory }) => {
       >
         {btn}
       </button>
-      <i class="bi bi-arrow-down-left-circle-fill"></i>
+      <i className="bi bi-arrow-down-left-circle-fill"></i>
     </div>
   );
 };

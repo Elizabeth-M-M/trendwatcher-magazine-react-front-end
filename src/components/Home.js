@@ -67,7 +67,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                       </a>
                     ) : (
                       <div>
-                        <i class="bi bi-list fw-bold"></i>
+                        <i className="bi bi-list fw-bold"></i>
                         <button
                           className="btn-read"
                           onClick={() => {
@@ -107,7 +107,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                           : articles.slice(1, 2)[0].part_title}
                       </h4>
                       <div>
-                        <i class="bi bi-list fw-bold"></i>
+                        <i className="bi bi-list fw-bold"></i>
                         <button
                           className="btn-read"
                           onClick={() => {
@@ -144,7 +144,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                           : articles.slice(2, 3)[0].part_title}
                       </h4>
                       <div>
-                        <i class="bi bi-list fw-bold"></i>
+                        <i className="bi bi-list fw-bold"></i>
                         <button
                           className="btn-read"
                           onClick={() => {

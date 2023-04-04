@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const ArticleImage2 = ({ elem }) => {
-   const navigator = useNavigate();
+  const navigator = useNavigate();
   return (
     <div
       className="header-bottom-card card-hover"
@@ -24,7 +24,7 @@ const ArticleImage2 = ({ elem }) => {
 
         <small className="theme-light ">{elem.summary}</small>
         <div className="mt-3">
-          <i class="bi bi-list me-2 fw-bold text-light"></i>
+          <i className="bi bi-list me-2 fw-bold text-light"></i>
           <Link to={`/articles/${elem.id}`} className="category-link">
             READ
           </Link>
@@ -35,5 +35,3 @@ const ArticleImage2 = ({ elem }) => {
 };
 
 export default ArticleImage2;
-
-

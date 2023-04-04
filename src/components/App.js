@@ -36,6 +36,7 @@ const App = () => {
       }
     });
   }, []);
+  // console.log(allArticles)
 
   useEffect(() => {
     fetch("https://trial1-cksf.onrender.com/me").then((res) => {
@@ -50,10 +51,10 @@ const App = () => {
   }
   function handleArticleAdd(article){
 
-          setAllArticles([...allArticles, article]);
+          setAllArticles([article, ...allArticles]);
 
   }
-  console.log(allArticles.length)
+  // console.log(allArticles.length)
 
   return (
     <div>

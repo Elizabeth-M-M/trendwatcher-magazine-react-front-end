@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ArticleImage from "./ArticleImage";
 import ArticleText from "./ArticleText";
 import CategoryBtn from "./CategoryBtn";
@@ -17,8 +17,6 @@ const Category = ({
 }) => {
   const [search, setSearch] = useState("");
   const navigator = useNavigate();
-  // const [selectedArticles, setSelectedArticles] = useState([]);
-
   function handleSearch(event) {
     setSearch(event.target.value);
   }
@@ -36,6 +34,7 @@ const Category = ({
       return article;
     }
   });
+  // console.log(found);
 
   let selectedArticles = [];
   if (category === "All") {
@@ -57,16 +56,7 @@ const Category = ({
       }
     });
   }
-  //  console.log(selectedArticles)
-
-  let leftArticles = selectedArticles.slice(0, 3).map((article, i) => {
-    return <ArticleImage elem={article} key={i} />;
-  });
-  let rightArticles = selectedArticles.slice(3, 6).map((article, i) => {
-    return <ArticleImage2 elem={article} key={i} />;
-  });
-  // console.log(category)
-  // console.log(user);
+  
   let userView = (
     <>
       <div className="container p-3">
@@ -86,21 +76,41 @@ const Category = ({
           <div className="row">
             <div className="col-md-8">
               <div className="row">
-                <div className="col-md-6">{leftArticles}</div>
-                <div className="col-md-6">{rightArticles}</div>
+                <div className="col-md-6">
+                  {selectedArticles[0] === undefined
+                    ? null
+                    : selectedArticles
+                        .slice(0, 3)
+                        .map((article, i) => (
+                          <ArticleImage elem={article} key={i} />
+                        ))}
+                </div>
+                <div className="col-md-6">
+                  {selectedArticles[0] === undefined
+                    ? null
+                    : selectedArticles
+                        .slice(3, 6)
+                        .map((article, i) => (
+                          <ArticleImage2 elem={article} key={i} />
+                        ))}
+                </div>
               </div>
             </div>
 
             <div className="col-md-4">
-              {selectedArticles.length <= 8 ? null : (
+              {selectedArticles[0] === undefined
+                    ? null
+                    :selectedArticles.length <= 8 ? null : (
                 <h6 className="theme-light-mellow-color">
                   MORE
                 </h6>
               )}
-              {selectedArticles.length < 8
+              {selectedArticles[0] === undefined
+                    ? null
+                    :selectedArticles.length < 8
                 ? null
                 : selectedArticles
-                    .slice(8, selectedArticles.length + 1)
+                    .slice(8, 14)
                     .map((article, i) => {
                       return <ArticleText elem={article} key={i} />;
                     })}
@@ -138,27 +148,30 @@ const Category = ({
           </div>
           <div className="container">
             <div className="editor-row">
-              {found.map((article, i) => {
-                return (
-                  <DisplayEditArticle
-                    elem={article}
-                    key={i}
-                    removeArticle={removeArticle}
-                  />
-                );
-              })}
+              {articles[0] === undefined
+                ? null
+                : found.map((article, i) => {
+                    return (
+                      <DisplayEditArticle
+                        elem={article}
+                        key={i}
+                        removeArticle={removeArticle}
+                      />
+                    );
+                  })}
             </div>
           </div>
         </div>
       </div>
     </>
   );
-
+  // console.log(articles)
   return (
     <>
       {!user ? userView : user.username !== "editor" ? userView : editorView}
       <Footer/>
     </>
+  
   );
 };
 

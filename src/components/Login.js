@@ -55,11 +55,11 @@ const Login = ({ handleUser }) => {
 
   return (
     <div className="text-center form-body">
-      <div className="container">
+      <div className="container ">
         <div className="py-5"></div>
         <div className="col-md-6 col-10 m-auto">
           <form
-            className="row g-3 needs-validation faded-bg-light text-light"
+            className="row g-3 needs-validation faded-bg-light theme-light-mellow-color"
             onSubmit={handleSubmit}
             novalidate
           >

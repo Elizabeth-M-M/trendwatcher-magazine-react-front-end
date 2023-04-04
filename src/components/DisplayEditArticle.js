@@ -22,7 +22,7 @@ const DisplayEditArticle = ({ elem, removeArticle }) => {
         <h4>{elem.part_title}</h4>
         <div className="d-flex align-items-center justify-content-between">
           <div className="">
-            <i class="bi bi-list fw-bold"></i>
+            <i className="bi bi-list fw-bold"></i>
             <button
               className="btn-read"
               onClick={() => {

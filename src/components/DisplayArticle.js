@@ -60,6 +60,7 @@ const DisplayArticle = ({ user, articleToEdit }) => {
     }
   }
   // console.log(comment)
+  // console.log(user)
 
   let reviewForm = (
     <div className="container">
@@ -77,7 +78,7 @@ const DisplayArticle = ({ user, articleToEdit }) => {
           </div>
         </div> */}
         <div className="form-group col-md-8">
-          <label for="exampleFormControlTextarea1"></label>
+          <label htmlFor="exampleFormControlTextarea1"></label>
           <textarea
             className="form-control"
             id="exampleFormControlTextarea1"
@@ -87,13 +88,46 @@ const DisplayArticle = ({ user, articleToEdit }) => {
             onChange={(event) => setComment(event.target.value)}
           ></textarea>
         </div>
-        <button type="submit" className="btn-style my-3">
-          POST
-        </button>
+        {user ? (
+          <button type="submit" className="btn-style my-3">
+            POST
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="btn-style my-3"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            POST
+          </button>
+        )}
+
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog  ">
+            <div className="modal-content bg-dark text-light">
+              <button
+                type="button"
+                className="btn-close text-light"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+              <div className="modal-body px-5">
+                You have to log in first to leave a review
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   );
-  console.log(errors);
+  // console.log(errors);
   return (
     <>
       <div className="container">
@@ -167,7 +201,7 @@ const DisplayArticle = ({ user, articleToEdit }) => {
                 return (
                   <div key={ind} className="container p-2">
                     <div className="d-flex align-items-center p-3 faded-bg col-md-5  mt-3">
-                      <i class="bi bi-person-lines-fill display-6 me-4 theme-light-mellow-color"></i>
+                      <i className="bi bi-person-lines-fill display-6 me-4 theme-light-mellow-color"></i>
 
                       <div className="">
                         <h6 className="theme-light-mellow-color">

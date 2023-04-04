@@ -51,7 +51,7 @@ const Signup = ({ handleUser }) => {
         <div className="py-md-5 py-2"></div>
         <div className="col-md-6 col-10 m-auto mt-5">
           <form
-            className="row g-3 needs-validation faded-bg-light fw-bold text-light"
+            className="row g-3 needs-validation faded-bg-light fw-bold theme-light-mellow-color"
             onSubmit={handleSubmit}
             novalidate
           >
