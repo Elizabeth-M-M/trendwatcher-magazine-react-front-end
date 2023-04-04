@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // Form responsible for sign up of a new user
-const Signup = ({ handleUser }) => {
+const Signup = ({ handleUser, setThereIsUser }) => {
   const navigator = useNavigate();
   const [errors, setErrors] = useState([]);
   const [signUpFormData, setFormData] = useState({
@@ -30,14 +30,18 @@ const Signup = ({ handleUser }) => {
       body: JSON.stringify(signUpFormData),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => handleUser(user));
-        setFormData({
-          username: "",
-          email: "",
-          password: "",
-          password_confirmation: "",
+        r.json().then((user) => {
+          handleUser(user);
+          localStorage.setItem("userId", JSON.stringify(user.id));
+          setThereIsUser(true);
+          setFormData({
+            username: "",
+            email: "",
+            password: "",
+            password_confirmation: "",
+          });
+          navigator("/");
         });
-        navigator("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

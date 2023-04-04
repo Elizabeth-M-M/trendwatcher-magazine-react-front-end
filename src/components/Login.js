@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // Form responsible for login
-const Login = ({ handleUser }) => {
+const Login = ({ handleUser, setThereIsUser }) => {
   const navigator = useNavigate();
   const [errors, setErrors] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
@@ -39,14 +39,22 @@ const Login = ({ handleUser }) => {
       body: JSON.stringify(loginFormData),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => handleUser(user));
-        setFormData({
-          username: "",
-          email: "",
-          password: "",
-          password_confirmation: "",
+        r.json().then((user) => {
+          handleUser(user);
+          if (userSession === "user") {
+            localStorage.setItem("userId", JSON.stringify(user.id));
+          } else {
+            localStorage.setItem("editorId", JSON.stringify(user.id));
+          }
+          setThereIsUser(true);
+          setFormData({
+            username: "",
+            email: "",
+            password: "",
+            password_confirmation: "",
+          });
+          navigator("/");
         });
-        navigator("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

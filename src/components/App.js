@@ -15,6 +15,7 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [allArticles, setAllArticles] = useState([]);
   const [articleToEdit, setArticleToEdit] = useState(null);
+  const[thereIsUser, setThereIsUser]= useState(false)
   //  console.log(user)
   const categoryBtns = [
     "All",
@@ -29,7 +30,34 @@ const App = () => {
   ];
   const [category, setCategory] = useState("All");
   //  Getting all articles from the database
+  useEffect(()=>{
+  
+    const userId = localStorage.getItem("userId");
+    const editorId = localStorage.getItem("editorId");
+    if(userId){
+      const id = JSON.parse(userId);
+       fetch(`https://trial1-cksf.onrender.com/users/${id}`).then((res) => {
+         if (res.ok) {
+           res.json().then((user) => setUser(user));
+           setThereIsUser(true)
+         }
+       });
+    }else if(editorId){
+      const id = JSON.parse(editorId);
+       fetch(`https://trial1-cksf.onrender.com/editors/{id}`).then((res) => {
+         if (res.ok) {
+           res.json().then((user) => setUser(user));
+           setThereIsUser(true);
+         }
+       });
+      
+    }
+    //  const parsedId = JSON.parse(id);
+    // console.log(parsedId)
+   
+  },[thereIsUser])
   useEffect(() => {
+    
     fetch("https://trial1-cksf.onrender.com/articles").then((res) => {
       if (res.ok) {
         res.json().then((data) => {
@@ -47,10 +75,11 @@ const App = () => {
   function handleArticleAdd(article) {
     setAllArticles([article, ...allArticles]);
   }
+  console.log(user)
 
   return (
     <div>
-      <Navbar user={user} onLogout={setUser} />
+      <Navbar user={user} onLogout={setUser} setThereIsUser={setThereIsUser} />
       <Routes>
         <Route
           path="/"
@@ -63,7 +92,12 @@ const App = () => {
             />
           }
         ></Route>
-        <Route path="/login" element={<Login handleUser={setUser} />}></Route>
+        <Route
+          path="/login"
+          element={
+            <Login handleUser={setUser} setThereIsUser={setThereIsUser} />
+          }
+        ></Route>
         <Route
           path="/article_add"
           element={<ArticleForm onArticleAdd={handleArticleAdd} />}
@@ -91,7 +125,12 @@ const App = () => {
             <DisplayArticle user={user} articleToEdit={setArticleToEdit} />
           }
         ></Route>
-        <Route path="/signup" element={<Signup handleUser={setUser} />}></Route>
+        <Route
+          path="/signup"
+          element={
+            <Signup handleUser={setUser} setThereIsUser={setThereIsUser} />
+          }
+        ></Route>
       </Routes>
     </div>
   );
