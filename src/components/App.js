@@ -44,7 +44,7 @@ const App = () => {
        });
     }else if(editorId){
       const id = JSON.parse(editorId);
-       fetch(`https://trial1-cksf.onrender.com/editors/{id}`).then((res) => {
+       fetch(`https://trial1-cksf.onrender.com/editors/${id}`).then((res) => {
          if (res.ok) {
            res.json().then((user) => setUser(user));
            setThereIsUser(true);
@@ -75,7 +75,6 @@ const App = () => {
   function handleArticleAdd(article) {
     setAllArticles([article, ...allArticles]);
   }
-  console.log(user)
 
   return (
     <div>
