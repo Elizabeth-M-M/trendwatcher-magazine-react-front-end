@@ -60,7 +60,7 @@ $ npm start
 
 5. The app should now be running on `http://localhost:3000`
 
-The app uses an already deployed api for its backend. The backend repository for this front end is `https://github.com/Elizabeth-M-M/magazine_ruby_on_rails_backend` and it's deployed version is at https://rails-9mnm.onrender.com/
+The app uses an already deployed api for its backend. The backend repository for this front end is `https://github.com/Elizabeth-M-M/backend_trendwatcher` and it's deployed version is at https://rails-9mnm.onrender.com/
 
 ### Using the deployed front end
 
