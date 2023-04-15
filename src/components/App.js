@@ -15,7 +15,7 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [allArticles, setAllArticles] = useState([]);
   const [articleToEdit, setArticleToEdit] = useState(null);
-  const[thereIsUser, setThereIsUser]= useState(false)
+  const [thereIsUser, setThereIsUser] = useState(false);
   //  console.log(user)
   const categoryBtns = [
     "All",
@@ -30,35 +30,31 @@ const App = () => {
   ];
   const [category, setCategory] = useState("All");
   //  Getting all articles from the database
-  useEffect(()=>{
-  
+  useEffect(() => {
     const userId = localStorage.getItem("userId");
     const editorId = localStorage.getItem("editorId");
-    if(userId){
+    if (userId) {
       const id = JSON.parse(userId);
-       fetch(`https://trial1-cksf.onrender.com/users/${id}`).then((res) => {
-         if (res.ok) {
-           res.json().then((user) => setUser(user));
-           setThereIsUser(true)
-         }
-       });
-    }else if(editorId){
+      fetch(`https://rails-9mnm.onrender.com/users/${id}`).then((res) => {
+        if (res.ok) {
+          res.json().then((user) => setUser(user));
+          setThereIsUser(true);
+        }
+      });
+    } else if (editorId) {
       const id = JSON.parse(editorId);
-       fetch(`https://trial1-cksf.onrender.com/editors/${id}`).then((res) => {
-         if (res.ok) {
-           res.json().then((user) => setUser(user));
-           setThereIsUser(true);
-         }
-       });
-      
+      fetch(`https://rails-9mnm.onrender.com/editors/${id}`).then((res) => {
+        if (res.ok) {
+          res.json().then((user) => setUser(user));
+          setThereIsUser(true);
+        }
+      });
     }
     //  const parsedId = JSON.parse(id);
     // console.log(parsedId)
-   
-  },[thereIsUser])
+  }, [thereIsUser]);
   useEffect(() => {
-    
-    fetch("https://trial1-cksf.onrender.com/articles").then((res) => {
+    fetch("https://rails-9mnm.onrender.com/articles").then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setAllArticles(data);

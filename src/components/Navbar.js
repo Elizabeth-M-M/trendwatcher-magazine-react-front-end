@@ -6,14 +6,14 @@ const Navbar = ({ user, onLogout, setThereIsUser }) => {
   const navigator = useNavigate();
   // handles logout of a user/editor
   function handleLogout() {
-    // fetch("https://trial1-cksf.onrender.com/logout", {
+    // fetch("https://rails-9mnm.onrender.com/logout", {
     //   method: "DELETE",
     // }).then(() => );
 
     localStorage.clear();
     // localStorage.removeItem("userId");
     onLogout();
-    setThereIsUser(false)
+    setThereIsUser(false);
     navigator("/");
   }
   return (

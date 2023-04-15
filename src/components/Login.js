@@ -31,7 +31,7 @@ const Login = ({ handleUser, setThereIsUser }) => {
     }
     // console.log(userSession);
 
-    fetch(`https://trial1-cksf.onrender.com/login/${userSession}`, {
+    fetch(`https://rails-9mnm.onrender.com/login/${userSession}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

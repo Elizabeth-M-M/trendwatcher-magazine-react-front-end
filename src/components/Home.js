@@ -54,7 +54,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                         refresh
                       </p>
                       <a
-                        href="https://trial1-cksf.onrender.com/articles/1"
+                        href="https://rails-9mnm.onrender.com/articles/1"
                         className="btn-style text-decoration-none"
                       >
                         Click To Solve
@@ -169,7 +169,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
       </div>
     </>
   );
-// This is the editors home page after logging in
+  // This is the editors home page after logging in
   let editorHomePage = (
     <>
       <div className="editor-form-body ">

@@ -5,7 +5,7 @@ const DisplayEditArticle = ({ elem, removeArticle }) => {
   const navigator = useNavigate();
   // An editor can delete an article
   function handleDelete() {
-    fetch(`https://trial1-cksf.onrender.com/articles/${elem.id}`, {
+    fetch(`https://rails-9mnm.onrender.com/articles/${elem.id}`, {
       method: "DELETE",
     }).then(() => console.log("deleted"));
     removeArticle(elem.id);
@@ -46,4 +46,3 @@ const DisplayEditArticle = ({ elem, removeArticle }) => {
 };
 
 export default DisplayEditArticle;
-

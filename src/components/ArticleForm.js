@@ -22,7 +22,7 @@ const ArticleForm = ({ onArticleAdd }) => {
   // Creates an article in the database through POST method plus renders it front end
   function handleSubmit(event) {
     event.preventDefault();
-    fetch(`https://trial1-cksf.onrender.com/articles`, {
+    fetch(`https://rails-9mnm.onrender.com/articles`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

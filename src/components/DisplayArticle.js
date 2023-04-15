@@ -13,7 +13,7 @@ const DisplayArticle = ({ user, articleToEdit }) => {
   let { id } = useParams();
   // Gets data for a particular article
   useEffect(() => {
-    fetch(`https://trial1-cksf.onrender.com/articles/${id}`).then((res) => {
+    fetch(`https://rails-9mnm.onrender.com/articles/${id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setOneArticle(data);
@@ -24,34 +24,33 @@ const DisplayArticle = ({ user, articleToEdit }) => {
       }
     });
   }, []);
-// Adds a review to the database through POST and renders it on the page
+  // Adds a review to the database through POST and renders it on the page
   function handleReview(e) {
     e.preventDefault();
-      let reviewFormData = {
-        comment,
-        user_id: user.id,
-        article_id: oneArticle.id,
-      };
+    let reviewFormData = {
+      comment,
+      user_id: user.id,
+      article_id: oneArticle.id,
+    };
 
-      fetch("https://trial1-cksf.onrender.com/reviews", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(reviewFormData),
-      }).then((r) => {
-        if (r.ok) {
-          r.json().then((data) => {
-            setReviews([...reviews, data]);
-            setComment("");
-          });
-        } else {
-          r.json().then((err) => console.log(err.errors));
-        }
-      });
-
+    fetch("https://rails-9mnm.onrender.com/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reviewFormData),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((data) => {
+          setReviews([...reviews, data]);
+          setComment("");
+        });
+      } else {
+        r.json().then((err) => console.log(err.errors));
+      }
+    });
   }
-// Responsible for adding review comment input. If user is an editor, the review form is not displayed
+  // Responsible for adding review comment input. If user is an editor, the review form is not displayed
   let reviewForm = (
     <div className="container">
       <h5 className="theme-dark-mellow-color">Leave a Review</h5>
@@ -131,7 +130,6 @@ const DisplayArticle = ({ user, articleToEdit }) => {
         </div>
       ) : (
         <>
-      
           <div className="row display-article theme-bg-modified">
             <div className="col-sm-6 display-article-img">
               <img src={oneArticle.image} alt="" />
