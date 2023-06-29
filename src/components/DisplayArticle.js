@@ -13,7 +13,7 @@ const DisplayArticle = ({ user, articleToEdit }) => {
   let { id } = useParams();
   // Gets data for a particular article
   useEffect(() => {
-    fetch(`https://rails-9mnm.onrender.com/articles/${id}`).then((res) => {
+    fetch(`http://localhost:3000/articles/${id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setOneArticle(data);
@@ -33,7 +33,7 @@ const DisplayArticle = ({ user, articleToEdit }) => {
       article_id: oneArticle.id,
     };
 
-    fetch("https://rails-9mnm.onrender.com/reviews", {
+    fetch("http://localhost:3000/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

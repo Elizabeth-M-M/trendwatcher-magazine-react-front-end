@@ -31,7 +31,7 @@ const Login = ({ handleUser, setThereIsUser }) => {
     }
     // console.log(userSession);
 
-    fetch(`https://rails-9mnm.onrender.com/login/${userSession}`, {
+    fetch(`http://localhost:3000/login/${userSession}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -6,7 +6,7 @@ const Navbar = ({ user, onLogout, setThereIsUser }) => {
   const navigator = useNavigate();
   // handles logout of a user/editor
   function handleLogout() {
-    // fetch("https://rails-9mnm.onrender.com/logout", {
+    // fetch("http://localhost:3000/logout", {
     //   method: "DELETE",
     // }).then(() => );
 

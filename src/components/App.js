@@ -35,7 +35,7 @@ const App = () => {
     const editorId = localStorage.getItem("editorId");
     if (userId) {
       const id = JSON.parse(userId);
-      fetch(`https://rails-9mnm.onrender.com/users/${id}`).then((res) => {
+      fetch(`http://localhost:3000/users/${id}`).then((res) => {
         if (res.ok) {
           res.json().then((user) => setUser(user));
           setThereIsUser(true);
@@ -43,7 +43,7 @@ const App = () => {
       });
     } else if (editorId) {
       const id = JSON.parse(editorId);
-      fetch(`https://rails-9mnm.onrender.com/editors/${id}`).then((res) => {
+      fetch(`http://localhost:3000/editors/${id}`).then((res) => {
         if (res.ok) {
           res.json().then((user) => setUser(user));
           setThereIsUser(true);
@@ -54,7 +54,7 @@ const App = () => {
     // console.log(parsedId)
   }, [thereIsUser]);
   useEffect(() => {
-    fetch("https://rails-9mnm.onrender.com/articles").then((res) => {
+    fetch("http://localhost:3000/articles").then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setAllArticles(data);

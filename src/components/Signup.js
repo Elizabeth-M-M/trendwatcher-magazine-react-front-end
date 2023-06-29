@@ -22,7 +22,7 @@ const Signup = ({ handleUser, setThereIsUser }) => {
   // This POST request creates a user on the database and logs in a user to the program
   function handleSubmit(event) {
     event.preventDefault();
-    fetch("https://rails-9mnm.onrender.com/signup", {
+    fetch("http://localhost:3000/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

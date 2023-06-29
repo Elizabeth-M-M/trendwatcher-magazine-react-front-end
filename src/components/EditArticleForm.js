@@ -17,7 +17,7 @@ const EditArticleForm = ({ articleToEdit }) => {
   // On clicking edit, the changes are made to the database through PATCH method
   function handleSubmit(event) {
     event.preventDefault();
-    fetch(`https://rails-9mnm.onrender.com/articles/${articleToEdit.id}`, {
+    fetch(`http://localhost:3000/articles/${articleToEdit.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

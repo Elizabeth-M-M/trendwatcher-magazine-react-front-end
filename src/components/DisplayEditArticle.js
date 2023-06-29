@@ -5,7 +5,7 @@ const DisplayEditArticle = ({ elem, removeArticle }) => {
   const navigator = useNavigate();
   // An editor can delete an article
   function handleDelete() {
-    fetch(`https://rails-9mnm.onrender.com/articles/${elem.id}`, {
+    fetch(`http://localhost:3000/articles/${elem.id}`, {
       method: "DELETE",
     }).then(() => console.log("deleted"));
     removeArticle(elem.id);
