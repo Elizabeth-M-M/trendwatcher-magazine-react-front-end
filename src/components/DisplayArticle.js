@@ -182,7 +182,14 @@ const DisplayArticle = ({ user, articleToEdit, thereIsUser }) => {
               <h4 className="header-font text-uppercase">
                 Login to read the rest of the article
               </h4>
-              <button className="btn-style">Log in</button>
+              <button
+                className="btn-style"
+                onClick={() => {
+                  navigator("/login");
+                }}
+              >
+                Log in
+              </button>
             </div>
           )}
 
