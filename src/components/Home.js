@@ -141,7 +141,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
           })}
         </div>
       </div>
-      <div className="theme-bg-modified">
+      {/* <div className="theme-bg-modified">
         <div className="container p-4">
           <h2 className="theme-light-mellow-color display-4 text-center">
             IN OTHER NEWS
@@ -151,7 +151,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
             <div className="col">{rightArticles}</div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
   // This is the editors home page after logging in
@@ -183,11 +183,6 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
         ? userHomePage
         : editorHomePage}
 
-      {/* {!user
-        ? userHomePage
-        : user.username !== "editor"
-        ? userHomePage
-        : editorHomePage} */}
       {articles.length !== 0 ? null : <Footer />}
     </>
   );
