@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import CategoryBtn from "./CategoryBtn";
 import ArticleImage2 from "./ArticleImage2";
 import Footer from "./Footer";
+
 // Landing page for users and the editor
 const Home = ({ user, articles, categoryBtns, setCategory }) => {
   const navigator = useNavigate();
@@ -19,7 +20,6 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
   // This is the user's home page view, whether logged in or not
   let userHomePage = (
     <>
-    
       <div className="theme-bg-modified">
         <div className="container p-2">
           {user ? (
@@ -45,7 +45,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                       alt=""
                     />
                   </div>
-                 
+                  {articles.slice(0, 1)[0] ===  undefined ? null : (
                     <div className="header-floater p-md-4 p-2 card-hover">
                       <h6>{articles.slice(0, 1)[0].category}</h6>
                       <h3>{articles.slice(0, 1)[0].part_title}</h3>
@@ -63,7 +63,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                         </button>
                       </div>
                     </div>
-                 
+                  )}
                 </div>
 
                 <div className="d-sm-flex d-block gap-3 mt-4">
