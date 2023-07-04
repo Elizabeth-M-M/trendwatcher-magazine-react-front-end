@@ -19,6 +19,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
   // This is the user's home page view, whether logged in or not
   let userHomePage = (
     <>
+    
       <div className="theme-bg-modified">
         <div className="container p-2">
           {user ? (
@@ -44,23 +45,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                       alt=""
                     />
                   </div>
-                  {articles.length === 0 ? (
-                    <div className="p-5 header-floater">
-                      <h4 className="">APOLOGIES</h4>
-                      <p>
-                        We're currently facing some issues getting data for the
-                        articles. <br /> Click the button below and wait until
-                        you see some data, then go back to the website and
-                        refresh
-                      </p>
-                      <a
-                        href="https://trendwatcher-backend.onrender.com/articles/1"
-                        className="btn-style text-decoration-none"
-                      >
-                        Click To Solve
-                      </a>
-                    </div>
-                  ) : (
+                 
                     <div className="header-floater p-md-4 p-2 card-hover">
                       <h6>{articles.slice(0, 1)[0].category}</h6>
                       <h3>{articles.slice(0, 1)[0].part_title}</h3>
@@ -78,7 +63,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                         </button>
                       </div>
                     </div>
-                  )}
+                 
                 </div>
 
                 <div className="d-sm-flex d-block gap-3 mt-4">
@@ -190,12 +175,20 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
   return (
     <>
       <div className="container"></div>
-      {!user
+      {articles.length === 0
+        ? null
+        : !user
         ? userHomePage
         : user.username !== "editor"
         ? userHomePage
         : editorHomePage}
-      <Footer />
+
+      {/* {!user
+        ? userHomePage
+        : user.username !== "editor"
+        ? userHomePage
+        : editorHomePage} */}
+      {articles.length !== 0 ? null : <Footer />}
     </>
   );
 };

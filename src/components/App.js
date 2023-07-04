@@ -65,7 +65,7 @@ const App = () => {
         });
       }
     });
-  }, []);
+  }, [allArticles]);
   // Removing an article deleted by the editor to the list of all articles
   function handleRemoveArticle(id) {
     let sortedArticles = allArticles.filter((article) => article.id !== id);
@@ -78,7 +78,22 @@ const App = () => {
 
   return (
     <div>
-      <Navbar user={user} onLogout={setUser} setThereIsUser={setThereIsUser} />
+      {allArticles.length === 0 ? (
+        <div className="h-100">
+          <div className=" theme-bg-modified-loading">
+            <h1 className="header-font display-4">TREND WATCHER DAILY</h1>
+            <p>Your one stop read for all your information needs</p>
+            <p>Please wait</p>
+          </div>
+        </div>
+      ) : (
+        <Navbar
+          user={user}
+          onLogout={setUser}
+          setThereIsUser={setThereIsUser}
+        />
+      )}
+
       <Routes>
         <Route
           path="/"
@@ -121,7 +136,7 @@ const App = () => {
         <Route
           path="/articles/:id"
           element={
-            <DisplayArticle user={user} articleToEdit={setArticleToEdit} />
+            <DisplayArticle user={user} thereIsUser={thereIsUser} articleToEdit={setArticleToEdit} />
           }
         ></Route>
         <Route
