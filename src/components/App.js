@@ -65,7 +65,7 @@ const App = () => {
         });
       }
     });
-  }, [allArticles]);
+  }, []);
   // Removing an article deleted by the editor to the list of all articles
   function handleRemoveArticle(id) {
     let sortedArticles = allArticles.filter((article) => article.id !== id);

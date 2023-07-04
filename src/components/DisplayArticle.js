@@ -4,13 +4,14 @@ import "./App.css";
 import { useNavigate } from "react-router";
 import Footer from "./Footer";
 // This component is responsible for displaying a single article with it's content
-const DisplayArticle = ({ user, articleToEdit }) => {
+const DisplayArticle = ({ user, articleToEdit, thereIsUser }) => {
   const navigator = useNavigate();
   const [oneArticle, setOneArticle] = useState({});
   const [comment, setComment] = useState("");
   const [reviews, setReviews] = useState([]);
   const [errors, setErrors] = useState([]);
   let { id } = useParams();
+// console.log(thereIsUser)
   // Gets data for a particular article
   useEffect(() => {
     fetch(`https://trendwatcher-backend.onrender.com/articles/${id}`).then(
@@ -151,29 +152,46 @@ const DisplayArticle = ({ user, articleToEdit }) => {
               </div>
             </div>
           </div>
-          <div className="container pt-4">
-            <div className="d-flex align-items-center">
-              <h1 className="display-1 theme-bg theme-light-mellow-color rounded-circle px-3 me-3">
-                T
-              </h1>
-              <div className="theme-dark-mellow-color">
-                <h4>By Trend Team</h4>
-                <h4>Trend Watchers Daily</h4>
+          {thereIsUser ? (
+            <div>
+              <div className="container pt-4">
+                <div className="d-flex align-items-center">
+                  <h1 className="display-1 theme-bg theme-light-mellow-color rounded-circle px-3 me-3">
+                    T
+                  </h1>
+                  <div className="theme-dark-mellow-color">
+                    <h4>By Trend Team</h4>
+                    <h4>Trend Watchers Daily</h4>
+                  </div>
+                </div>
+
+                <div className="col-md-8 col-12">
+                  <p className="pt-2">{oneArticle.part2}</p>
+
+                  <p className="pt-2">{oneArticle.part3}</p>
+                </div>
               </div>
+              {!user
+                ? reviewForm
+                : user.username !== "editor"
+                ? reviewForm
+                : null}
             </div>
-
-            <div className="col-md-8 col-12">
-              <p className="pt-2">{oneArticle.part2}</p>
-
-              <p className="pt-2">{oneArticle.part3}</p>
+          ) : (
+            <div className="p-5 text-center">
+              <h4 className="header-font text-uppercase">
+                Login to read the rest of the article
+              </h4>
+              <button className="btn-style">Log in</button>
             </div>
-          </div>
-          {!user ? reviewForm : user.username !== "editor" ? reviewForm : null}
+          )}
 
           <div className="theme-bg">
             {reviews.length === 0 ? (
               <div className="container">
-                <h6 className="theme-light py-3">Be the first to review</h6>
+                <h6 className="theme-light py-3 mb-0 ">
+                  Be the first to review
+                </h6>
               </div>
             ) : (
               reviews.map((review, ind) => {
