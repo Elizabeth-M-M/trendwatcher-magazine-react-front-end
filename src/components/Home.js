@@ -183,7 +183,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
         ? userHomePage
         : editorHomePage}
 
-      {articles.length !== 0 ? null : <Footer />}
+      {articles.length === 0 ? null : <Footer />}
     </>
   );
 };

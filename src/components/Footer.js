@@ -3,12 +3,12 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="footer text-light p-3 ">
-      <div className="container">
-        <div className="row text-center">
+      <div className="container ps-md-2">
+        <div className="row ">
           <div className="col-6 d-md-block d-none text-md-left">
             <div>
               <h6 className="fw-bold text-uppercase mb-3">Contact us</h6>
-              <p>Telephone - 07111111111</p>
+              <p>Telephone - 0727580967</p>
               <p>Email - info@trendwatcherdaily.com</p>
             </div>
           </div>
