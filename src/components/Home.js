@@ -54,7 +54,7 @@ const Home = ({ user, articles, categoryBtns, setCategory }) => {
                         refresh
                       </p>
                       <a
-                        href="http://localhost:3000/articles/1"
+                        href="https://trendwatcher-backend.onrender.com/articles/1"
                         className="btn-style text-decoration-none"
                       >
                         Click To Solve

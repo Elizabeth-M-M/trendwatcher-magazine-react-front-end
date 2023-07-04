@@ -13,16 +13,18 @@ const DisplayArticle = ({ user, articleToEdit }) => {
   let { id } = useParams();
   // Gets data for a particular article
   useEffect(() => {
-    fetch(`http://localhost:3000/articles/${id}`).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => {
-          setOneArticle(data);
-          setReviews(data.reviews);
-        });
-      } else {
-        res.json().then((err) => setErrors(err.errors));
+    fetch(`https://trendwatcher-backend.onrender.com/articles/${id}`).then(
+      (res) => {
+        if (res.ok) {
+          res.json().then((data) => {
+            setOneArticle(data);
+            setReviews(data.reviews);
+          });
+        } else {
+          res.json().then((err) => setErrors(err.errors));
+        }
       }
-    });
+    );
   }, []);
   // Adds a review to the database through POST and renders it on the page
   function handleReview(e) {
@@ -33,7 +35,7 @@ const DisplayArticle = ({ user, articleToEdit }) => {
       article_id: oneArticle.id,
     };
 
-    fetch("http://localhost:3000/reviews", {
+    fetch("https://trendwatcher-backend.onrender.com/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

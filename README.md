@@ -58,14 +58,14 @@ $ npm install
 $ npm start
 ```
 
-5. The app should now be running on `http://localhost:3000`
+5. The app should now be running on `https://trendwatcher-backend.onrender.com`
 
-The app uses an already deployed api for its backend. The backend repository for this front end is `https://github.com/Elizabeth-M-M/backend_trendwatcher` and it's deployed version is at http://localhost:3000/
+The app uses an already deployed api for its backend. The backend repository for this front end is `https://github.com/Elizabeth-M-M/backend_trendwatcher` and it's deployed version is at https://trendwatcher-backend.onrender.com/
 
 ### Using the deployed front end
 
 - Navigate to https://magazine-react-front-end.vercel.app
-- If the website is not showing any images, go to http://localhost:3000/articles/1 and wait until you see a JSON data of an article and refresh the page again.
+- If the website is not showing any images, go to https://trendwatcher-backend.onrender.com/articles/1 and wait until you see a JSON data of an article and refresh the page again.
 - If not, you can work with the website as you will
 
 As a user, you can sign up and use those credentials to sign in later after logging out

@@ -22,7 +22,7 @@ const Signup = ({ handleUser, setThereIsUser }) => {
   // This POST request creates a user on the database and logs in a user to the program
   function handleSubmit(event) {
     event.preventDefault();
-    fetch("http://localhost:3000/signup", {
+    fetch("https://trendwatcher-backend.onrender.com/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

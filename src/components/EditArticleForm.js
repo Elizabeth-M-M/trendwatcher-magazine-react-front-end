@@ -17,13 +17,16 @@ const EditArticleForm = ({ articleToEdit }) => {
   // On clicking edit, the changes are made to the database through PATCH method
   function handleSubmit(event) {
     event.preventDefault();
-    fetch(`http://localhost:3000/articles/${articleToEdit.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(articleFormData),
-    }).then((r) => {
+    fetch(
+      `https://trendwatcher-backend.onrender.com/articles/${articleToEdit.id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(articleFormData),
+      }
+    ).then((r) => {
       if (r.ok) {
         r.json().then((article) => {
           console.log(article);

@@ -6,7 +6,7 @@ const Navbar = ({ user, onLogout, setThereIsUser }) => {
   const navigator = useNavigate();
   // handles logout of a user/editor
   function handleLogout() {
-    // fetch("http://localhost:3000/logout", {
+    // fetch("https://trendwatcher-backend.onrender.com/logout", {
     //   method: "DELETE",
     // }).then(() => );
 

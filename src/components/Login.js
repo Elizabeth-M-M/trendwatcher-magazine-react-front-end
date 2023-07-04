@@ -31,7 +31,7 @@ const Login = ({ handleUser, setThereIsUser }) => {
     }
     // console.log(userSession);
 
-    fetch(`http://localhost:3000/login/${userSession}`, {
+    fetch(`https://trendwatcher-backend.onrender.com/login/${userSession}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

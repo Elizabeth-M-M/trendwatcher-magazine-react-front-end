@@ -35,26 +35,30 @@ const App = () => {
     const editorId = localStorage.getItem("editorId");
     if (userId) {
       const id = JSON.parse(userId);
-      fetch(`http://localhost:3000/users/${id}`).then((res) => {
-        if (res.ok) {
-          res.json().then((user) => setUser(user));
-          setThereIsUser(true);
+      fetch(`https://trendwatcher-backend.onrender.com/users/${id}`).then(
+        (res) => {
+          if (res.ok) {
+            res.json().then((user) => setUser(user));
+            setThereIsUser(true);
+          }
         }
-      });
+      );
     } else if (editorId) {
       const id = JSON.parse(editorId);
-      fetch(`http://localhost:3000/editors/${id}`).then((res) => {
-        if (res.ok) {
-          res.json().then((user) => setUser(user));
-          setThereIsUser(true);
+      fetch(`https://trendwatcher-backend.onrender.com/editors/${id}`).then(
+        (res) => {
+          if (res.ok) {
+            res.json().then((user) => setUser(user));
+            setThereIsUser(true);
+          }
         }
-      });
+      );
     }
     //  const parsedId = JSON.parse(id);
     // console.log(parsedId)
   }, [thereIsUser]);
   useEffect(() => {
-    fetch("http://localhost:3000/articles").then((res) => {
+    fetch("https://trendwatcher-backend.onrender.com/articles").then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setAllArticles(data);
