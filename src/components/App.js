@@ -81,9 +81,16 @@ const App = () => {
       {allArticles.length === 0 ? (
         <div className="h-100">
           <div className=" theme-bg-modified-loading">
-            <h1 className="header-font display-4">TREND WATCHER DAILY</h1>
+            <h1 className="header-font display-1 theme-light-mellow-color">
+              TREND WATCHER DAILY
+            </h1>
             <p>Your one stop read for all your information needs</p>
-            <p>Please wait</p>
+            <p>Loading...</p>
+
+            <div
+              class="spinner-border theme-light-mellow-color"
+              role="status"
+            ></div>
           </div>
         </div>
       ) : (
@@ -136,7 +143,11 @@ const App = () => {
         <Route
           path="/articles/:id"
           element={
-            <DisplayArticle user={user} thereIsUser={thereIsUser} articleToEdit={setArticleToEdit} />
+            <DisplayArticle
+              user={user}
+              thereIsUser={thereIsUser}
+              articleToEdit={setArticleToEdit}
+            />
           }
         ></Route>
         <Route
